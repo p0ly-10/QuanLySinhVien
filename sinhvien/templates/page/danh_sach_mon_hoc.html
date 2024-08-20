@@ -1,0 +1,59 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Danh sách môn học{% endblock %}
+
+{% block content %}
+<h2>Danh sách môn học</h2>
+<table class="monhoc-table">
+    <tr>
+        <th>Mã môn</th>
+        <th>Tên môn</th>
+        <th>Số tín chỉ</th>
+        <!--<th>Hành động</th>-->
+    </tr>
+    {% for mh in mon_hocs %}
+    <tr>
+        <td>{{ mh.ma_mon }}</td>
+        <td>{{ mh.ten_mon }}</td>
+        <td>{{ mh.so_tin_chi }}</td>
+        <!--<td>
+            <a href="{% url 'xoa_mon_hoc' mh.id %}">Xóa</a>
+        </td>-->
+    </tr>
+    {% endfor %}
+</table>
+<style>
+    .monhoc-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* This ensures that columns are equally spaced */
+    }
+
+        .monhoc-table th, .monhoc-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .monhoc-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+            .monhoc-table th:nth-child(1),
+            .monhoc-table td:nth-child(1) {
+                width: 25%; /* Adjust as necessary to fit your layout */
+            }
+
+            .monhoc-table th:nth-child(2),
+            .monhoc-table td:nth-child(2) {
+                width: 25%;
+            }
+
+            .monhoc-table th:nth-child(3),
+            .monhoc-table td:nth-child(3) {
+                width: 25%;
+            }
+</style>
+<!--<a href="{% url 'them_mon_hoc' %}">Thêm môn học mới</a>-->
+{% endblock %}

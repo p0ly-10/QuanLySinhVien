@@ -1,0 +1,12 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Thêm Điểm{% endblock %}
+
+{% block content %}
+<h2>Thêm Điểm</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Thêm</button>
+</form>
+{% endblock %}

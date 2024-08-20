@@ -1,0 +1,13 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Xóa sinh viên{% endblock %}
+
+{% block content %}
+<h2>Xóa sinh viên</h2>
+<p>Bạn có chắc chắn muốn xóa sinh viên {{ sinh_vien.ho_ten }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Xóa</button>
+    <a href="{% url 'danh_sach_sinh_vien' %}">Hủy</a>
+</form>
+{% endblock %}

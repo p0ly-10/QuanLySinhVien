@@ -1,0 +1,61 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Danh sách sinh viên{% endblock %}
+
+{% block content %}
+<h2>Danh sách sinh viên</h2>
+<table class="student-table"
+    <tr>
+        <th>Mã sinh viên</th>
+        <th>Họ tên</th>
+        <th>Niên khóa</th>
+    </tr>
+    {% for sv in sinh_viens %}
+    <tr>
+        <td>{{ sv.ma_sv }}</td>
+        <td>{{ sv.ho_ten }}</td>
+        <td>{{ sv.nien_khoa }}</td>
+        <!--<td>-->
+            <!--<form method="post" action="{% url 'xoa_sinh_vien' sv.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" style="background:none;border:none;color:#007bff;text-decoration:underline;cursor:pointer;">Xóa</button>
+            </form>-->
+        <!--</td>-->
+    </tr>
+    {% endfor %}
+</table>
+<style>
+    .student-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* This ensures that columns are equally spaced */
+    }
+
+        .student-table th, .student-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .student-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+            .student-table th:nth-child(1),
+            .student-table td:nth-child(1) {
+                width: 25%; /* Adjust as necessary to fit your layout */
+            }
+
+            .student-table th:nth-child(2),
+            .student-table td:nth-child(2) {
+                width: 25%;
+            }
+
+            .student-table th:nth-child(3),
+            .student-table td:nth-child(3) {
+                width: 25%;
+            }
+</style>
+<!--<a href="{% url 'them_sinh_vien' %}">Thêm sinh viên mới</a>-->
+{% endblock %}

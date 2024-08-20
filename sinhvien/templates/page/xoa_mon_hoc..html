@@ -1,0 +1,13 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Xóa môn học{% endblock %}
+
+{% block content %}
+<h2>Xóa môn học</h2>
+<p>Bạn có chắc chắn muốn xóa môn học "{{ mon_hoc.ten_mon }}" không?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Xóa</button>
+    <a href="{% url 'danh_sach_mon_hoc' %}">Hủy</a>
+</form>
+{% endblock %}

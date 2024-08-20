@@ -1,0 +1,60 @@
+﻿{% extends "pages/layout.html" %}
+
+{% block title %}Danh sách môn học{% endblock %}
+
+{% block content %}
+<h2>Danh sách môn học và điểm</h2>
+<table class="diem-table">
+    <thead>
+        <tr>
+            <th>Tên sinh viên</th>
+            <th>Tên môn học</th>
+            <th>Điểm</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mh in mon_hocs %}
+        {% for diem in mh.diem_sinh_vien.all %}
+        <tr>
+            <td>{{ diem.sinh_vien.ho_ten }}</td>
+            <td>{{ mh.ten_mon }}</td>
+            <td>{{ diem.diem }}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    .diem-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed; /* This ensures that columns are equally spaced */
+    }
+
+        .diem-table th, .diem-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .diem-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+            .diem-table th:nth-child(1),
+            .diem-table td:nth-child(1) {
+                width: 25%; /* Adjust as necessary to fit your layout */
+            }
+
+            .diem-table th:nth-child(2),
+            .diem-table td:nth-child(2) {
+                width: 25%;
+            }
+
+            .diem-table th:nth-child(3),
+            diem-table td:nth-child(3) {
+                width: 25%;
+            }
+</style>
+{% endblock %}
